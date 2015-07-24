@@ -1,4 +1,4 @@
-var instantRunoff = require('../instant-runoff.js');
+var instantRunoff = require('../utility/instant-runoff.js');
 var instantRunoffWinner = instantRunoff.instantRunoffWinner;
 
 var allPassed = true;

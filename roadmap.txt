@@ -1,6 +1,0 @@
- * Instant runoff voting.
-
-On voting page:
- * Make YouTube videos collapsed by default, and give a button to open them.
- * Drag to reorder.
- * On submit, send the ordering.

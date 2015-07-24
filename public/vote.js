@@ -15,7 +15,7 @@ $('#submit-vote').on('click', function() {
 
     success: function() {
       alert("Vote submitted!");
-      window.location.assign('http://localhost:3000/'); // XXX
+      window.location.assign('http://localhost:3000/'); // XXX: Don't bake in the domain/port
     },
 
     error: function(xhr, status, errorThrown) {

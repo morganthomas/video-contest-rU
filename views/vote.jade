@@ -1,10 +1,5 @@
 extends layout
 
-block extra-header-data
-  script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js")
-  script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js")
-  script(src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.2.1/Sortable.min.js")
-
 mixin collapsibleVideo(video)
   div.panel.panel-default(data-video-id="#{video.youtubeVideoID}")
     div.panel-heading
@@ -12,7 +7,7 @@ mixin collapsibleVideo(video)
       h4.video-author Submitted by #{video.submitterName}
       a.btn.btn-default(role="button" data-toggle="collapse" data-parent="#videos" href="#video-#{video.youtubeVideoID}") Toggle Video
     div.panel-body.collapse(id="video-#{video.youtubeVideoID}")
-      <iframe width="560" height="315" src="//www.youtube.com/embed/#{video.youtubeVideoID}" frameborder="0" allowfullscreen></iframe>
+      +youtubePlayer(video.youtubeVideoID)
 
 block content
   +headerWithBackButton("Vote!")
@@ -20,9 +15,12 @@ block content
   p Arrange the videos from most to least favorite.
   
   div#videos
-    for video in videos
+    for video in contest.submissions
       +collapsibleVideo(video)
   
   a.btn.btn-primary#submit-vote Submit Vote
   
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js")
+  script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js")
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.2.1/Sortable.min.js")
   script(src="/vote.js")
